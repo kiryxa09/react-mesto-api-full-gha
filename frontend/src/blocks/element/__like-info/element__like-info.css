@@ -1,0 +1,6 @@
+.element__like-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 22px 0 0;
+}

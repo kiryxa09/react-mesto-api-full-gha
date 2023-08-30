@@ -1,0 +1,18 @@
+.element__trash_active {
+  width: 18px;
+  height: 19px;
+  background-image: url(./trash.svg);
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background-position: center;
+  cursor: pointer;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.element__trash_active:hover {
+  opacity: 0.6;
+}
