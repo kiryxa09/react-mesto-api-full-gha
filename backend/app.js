@@ -16,7 +16,7 @@ const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const corsOptions = {
-  origin: 'https://project-mesto.kiryxa09.nomoredomainsicu.ru',
+  origin: ['https://project-mesto.kiryxa09.nomoredomainsicu.ru', 'http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
