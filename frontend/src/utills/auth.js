@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.project-mesto.kiryxa.nomoredomainsicu.ru";
 
 const checkResponse = res => {
   if (res.ok) {
@@ -31,7 +31,6 @@ export const authorize = ({ password, email }) => {
     .then((res) => checkResponse(res))
     .then((res) => {
       if (res.token) {
-        localStorage.setItem("jwt", res.token);
         return res;
       }
     })
