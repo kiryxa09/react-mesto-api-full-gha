@@ -24,7 +24,7 @@ const Login = (props) => {
         email: values.email,
       })
       .then((data) => {
-        if (data.token) {
+        if (data) {
           setValues("");
           appContext.setLoggedIn(true);
           navigate("/", { replace: true });

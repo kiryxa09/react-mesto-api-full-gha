@@ -30,7 +30,7 @@ export const authorize = ({ password, email }) => {
   })
     .then((res) => checkResponse(res))
     .then((res) => {
-      if (res.token) {
+      if (res) {
         return res;
       }
     })
