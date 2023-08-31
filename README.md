@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/kiryxa09/react-mesto-api-full-gha/
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.103.42
 
-Frontend https://...
+Frontend https://project-mesto.kiryxa09.nomoredomainsicu.ru/
 
-Backend https://...
+Backend https://api.project-mesto.kiryxa.nomoredomainsicu.ru/
