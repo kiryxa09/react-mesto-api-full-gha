@@ -2,6 +2,7 @@ const path = require('path');
 const helmet = require('helmet');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors, Joi, celebrate } = require('celebrate');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
@@ -13,6 +14,12 @@ const errorHandler = require('./middlewares/errorHandler');
 const regex = require('./utils/constants');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+
+const corsOptions = {
+  origin: 'https://project-mesto.kiryxa09.nomoredomainsicu.ru',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -34,6 +41,7 @@ app.use(limiter);
 app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
+app.use(cors(corsOptions));
 
 app.get('/crash-test', () => {
   setTimeout(() => {
