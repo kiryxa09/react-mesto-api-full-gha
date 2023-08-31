@@ -36,7 +36,7 @@ function App() {
   const location = useLocation();
 
   React.useEffect(() => {
-    if (location.pathname === "/sign-up") {
+    if (location.pathname === "/signup") {
       setRegistered(true);
     }
   });
@@ -59,7 +59,7 @@ function App() {
 
   
 
-  React.useEffect(() => {
+ /* React.useEffect(() => {
     handleTokenCheck();
   }, []);
 
@@ -77,7 +77,7 @@ function App() {
         console.log(err);
       })
     }
-  };
+  };*/
 
   function handleEditProfileClick() {
     openProfilePopup(true);
@@ -242,12 +242,12 @@ function App() {
                 />
               }
             />
-            <Route path="/sign-in" element={<Login />} />
+            <Route path="/signin" element={<Login />} />
             <Route
-              path="/sign-up"
+              path="/signup"
               element={<Register onRegister={handleRegistration} />}
             />
-            <Route path="*" element={<Navigate to="sign-in" replace/>} />
+            <Route path="*" element={<Navigate to="signin" replace/>} />
           </Routes>
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}

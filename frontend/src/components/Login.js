@@ -24,6 +24,7 @@ const Login = (props) => {
         email: values.email,
       })
       .then((data) => {
+        console.log(data)
         if (data) {
           setValues("");
           appContext.setLoggedIn(true);

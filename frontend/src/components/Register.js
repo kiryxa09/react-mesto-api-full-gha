@@ -17,9 +17,10 @@ const Register = (props) => {
         email: values.email,
       })
       .then((res) => {
-        if (res.data) {
+        console.log(res)
+        if (res) {
           appContext.setTooltipInfo(true);
-          navigate("/sign-in", { replace: true });
+          navigate("/signin", { replace: true });
           appContext.setRegistered(false);
         }
       })
@@ -62,7 +63,7 @@ const Register = (props) => {
       </form>
       <p className="auth__sign-up">
         Уже зарегистрированы?
-        <Link onClick={handleLinkClick} to="/sign-in" className="auth__link">
+        <Link onClick={handleLinkClick} to="/signin" className="auth__link">
           {" "}
           Войти
         </Link>
