@@ -29,7 +29,7 @@ const Login = (props) => {
         console.log(data)
         if (data) {
           setValues("");
-          setCookie("user", data.user.password, { path: "/" });
+          setCookie("jwt", data.user._id, { path: "/" });
           appContext.setLoggedIn(true);
           navigate("/", { replace: true });
         }
