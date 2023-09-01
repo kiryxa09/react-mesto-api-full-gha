@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import * as auth from "../utills/auth";
 import { AppContext } from "../context/AppContext";
-import { CookiesProvider, useCookies } from "react-cookie";
 
 const Login = (props) => {
   const { values, handleChange, setValues } = useForm({});
   const navigate = useNavigate();
   const appContext = useContext(AppContext);
-  const [cookies, setCookie] = useCookies(["user"]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,10 +24,8 @@ const Login = (props) => {
         email: values.email,
       })
       .then((data) => {
-        console.log(data)
         if (data) {
           setValues("");
-          setCookie("jwt", data.user._id, { path: "/" });
           appContext.setLoggedIn(true);
           navigate("/", { replace: true });
         }

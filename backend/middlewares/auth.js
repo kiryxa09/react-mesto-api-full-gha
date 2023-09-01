@@ -10,7 +10,6 @@ const handleAuthError = () => {
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
-  console.log(req);
 
   if (!token) {
     return handleAuthError(res);

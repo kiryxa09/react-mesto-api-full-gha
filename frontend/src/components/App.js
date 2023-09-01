@@ -17,7 +17,6 @@ import ProtectedRouteElement from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
 import * as auth from "../utills/auth";
 
-
 function App() {
   const [isEditProfilePopupOpen, openProfilePopup] = React.useState(false);
   const [isAddPlacePopupOpen, openPlacePopup] = React.useState(false);
@@ -31,19 +30,16 @@ function App() {
   const [registered, setRegistered] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [tooltipInfo, setTooltipInfo] = React.useState(false);
-  
-
-    
 
   const navigate = useNavigate();
 
   const location = useLocation();
 
   React.useEffect(() => {
-    if (location.pathname === "/signup") {
+    if (location.pathname === "/sign-up") {
       setRegistered(true);
     }
-  }, [location.pathname]);
+  });
 
   React.useEffect(() => {
     if(loggedIn) {
@@ -67,18 +63,20 @@ function App() {
     handleTokenCheck();
   }, []);
 
-  const handleTokenCheck = () => { 
-    auth.checkToken()
-    .then((res) => {
-      if (res) {
-        setLoggedIn(true);
-        setEmail(res.data.email);
-        navigate("/", { replace: true });
-      }
-    })
-    .catch(err => {
-      console.log(err);
-    })
+  const handleTokenCheck = () => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      auth.checkToken(jwt).then((res) => {
+        if (res) {
+          setLoggedIn(true);
+          setEmail(res.data.email);
+          navigate("/", { replace: true });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   };
 
   function handleEditProfileClick() {
@@ -244,12 +242,12 @@ function App() {
                 />
               }
             />
-            <Route path="/signin" element={<Login />} />
+            <Route path="/sign-in" element={<Login />} />
             <Route
-              path="/signup"
+              path="/sign-up"
               element={<Register onRegister={handleRegistration} />}
             />
-            <Route path="*" element={<Navigate to="signin" replace/>} />
+            <Route path="*" element={<Navigate to="sign-in" replace/>} />
           </Routes>
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}

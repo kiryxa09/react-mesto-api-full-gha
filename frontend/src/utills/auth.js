@@ -10,6 +10,7 @@ const checkResponse = res => {
 export const register = ({ password, email }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -30,9 +31,15 @@ export const authorize = ({ password, email }) => {
     body: JSON.stringify({ password, email }),
   })
     .then((res) => checkResponse(res))
+    .then((res) => {
+      if (res.token) {
+        localStorage.setItem("jwt", res.token);
+        return res;
+      }
+    })
 };
 
-export const checkToken = () => {
+export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     credentials: 'include',

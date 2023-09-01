@@ -32,14 +32,14 @@ function Header() {
       {appContext.loggedIn ? (
         <p className="header__email">
           {appContext.email}
-          <Link to="/signin" className="header__link" onClick={exitMain}>
+          <Link to="/sign-in" className="header__link" onClick={exitMain}>
             Выйти
           </Link>
         </p>
       ) : (
         <Link
           onClick={handleLinkClick}
-          to={appContext.registered ? "/signin" : "/signup"}
+          to={appContext.registered ? "/sign-in" : "/sign-up"}
           className="header__link"
         >
           {appContext.registered ? "Войти" : "Регистрация"}

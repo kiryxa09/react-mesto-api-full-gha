@@ -14,6 +14,7 @@ export default class Api {
   getProfileInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
+      credentials: 'include',
     }).then((res) => {
       return this._checkResponse(res);
     });
@@ -22,6 +23,7 @@ export default class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
+      credentials: 'include',
     }).then((res) => {
       return this._checkResponse(res);
     });
@@ -30,6 +32,7 @@ export default class Api {
   patchProfileInfo(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -43,6 +46,7 @@ export default class Api {
   addNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -56,6 +60,7 @@ export default class Api {
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     }).then((res) => {
       return this._checkResponse(res);
@@ -65,6 +70,7 @@ export default class Api {
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
+      credentials: 'include',
       headers: this._headers,
     }).then((res) => {
       return this._checkResponse(res);
@@ -74,6 +80,7 @@ export default class Api {
   dislikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     }).then((res) => {
       return this._checkResponse(res);
@@ -84,6 +91,7 @@ export default class Api {
     if (isLiked) {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: "PUT",
+        credentials: 'include',
         headers: this._headers,
       }).then((res) => {
         return this._checkResponse(res);
@@ -91,6 +99,7 @@ export default class Api {
     } else {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: "DELETE",
+        credentials: 'include',
         headers: this._headers,
       }).then((res) => {
         return this._checkResponse(res);
@@ -101,6 +110,7 @@ export default class Api {
   patchAvatar(newAvatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar: newAvatar,
