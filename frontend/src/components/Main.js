@@ -36,9 +36,7 @@ function Main(props) {
         />
       </section>
       <section className="elements">
-        {
-        console.log(props.cards)
-       /* props.cards.map((card) => (
+        {props.cards.cards.map((card) => (
           <Card
             card={card}
             key={card._id}
@@ -46,7 +44,7 @@ function Main(props) {
             onCardLike={props.onCardLike}
             onCardDelete={props.onCardDelete}
           />
-       )*/}
+        ))}
       </section>
     </main>
   );
