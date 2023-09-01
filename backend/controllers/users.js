@@ -1,5 +1,6 @@
 const httpConstants = require('http2').constants;
 const { default: mongoose } = require('mongoose');
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -7,6 +8,8 @@ const BadReqError = require('../errors/bad-req-err');
 const NotFoundError = require('../errors/not-found-err');
 const UnAuthError = require('../errors/unauth-err');
 const StatusConflictError = require('../errors/stat-confl-err');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -103,7 +106,7 @@ const login = (req, res, next) => {
   } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret', { expiresIn: '7d' });
       res
         .cookie('jwt', token, {
         // token - наш JWT токен, который мы отправляем
@@ -123,7 +126,9 @@ const login = (req, res, next) => {
 const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
     .orFail()
-    .then((user) => res.send({ user }))
+    .then((user) => {
+      res.send({ user });
+    })
     .catch((e) => {
       if (e instanceof mongoose.Error.CastError) {
         return next(new BadReqError('Переданы некорректные данные'));

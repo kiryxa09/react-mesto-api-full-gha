@@ -17,6 +17,7 @@ import ProtectedRouteElement from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
 import * as auth from "../utills/auth";
 
+
 function App() {
   const [isEditProfilePopupOpen, openProfilePopup] = React.useState(false);
   const [isAddPlacePopupOpen, openPlacePopup] = React.useState(false);
@@ -30,6 +31,9 @@ function App() {
   const [registered, setRegistered] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [tooltipInfo, setTooltipInfo] = React.useState(false);
+  
+
+    
 
   const navigate = useNavigate();
 
@@ -39,7 +43,7 @@ function App() {
     if (location.pathname === "/signup") {
       setRegistered(true);
     }
-  });
+  }, [location.pathname]);
 
   React.useEffect(() => {
     if(loggedIn) {
@@ -59,25 +63,23 @@ function App() {
 
   
 
- /* React.useEffect(() => {
+  React.useEffect(() => {
     handleTokenCheck();
   }, []);
 
-  const handleTokenCheck = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      auth.checkToken(jwt).then((res) => {
-        if (res) {
-          setLoggedIn(true);
-          setEmail(res.data.email);
-          navigate("/", { replace: true });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    }
-  };*/
+  const handleTokenCheck = () => { 
+    auth.checkToken()
+    .then((res) => {
+      if (res) {
+        setLoggedIn(true);
+        setEmail(res.data.email);
+        navigate("/", { replace: true });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  };
 
   function handleEditProfileClick() {
     openProfilePopup(true);

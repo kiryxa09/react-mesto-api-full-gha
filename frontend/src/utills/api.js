@@ -112,7 +112,6 @@ export default class Api {
 }
 
 export const api = new Api("https://api.project-mesto.kiryxa.nomoredomainsicu.ru", {
-  authorization: "7b28846b-6feb-426f-b36e-edc1b9d97b68",
   "Content-Type": "application/json",
 });
 

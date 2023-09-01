@@ -75,7 +75,7 @@ app.use((res, req, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
-app.use(errorLogger); // подключаем логгер ошибок
+// app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 app.use(errorHandler);
