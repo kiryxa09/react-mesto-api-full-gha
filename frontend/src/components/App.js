@@ -66,8 +66,9 @@ function App() {
   const handleTokenCheck = () => {
     auth.checkToken().then((res) => {
       if (res) {
+        console.log(res);
         setLoggedIn(true);
-        setEmail(res.data.email);
+        setEmail(res.email);
         navigate("/", { replace: true });
       }
     })
