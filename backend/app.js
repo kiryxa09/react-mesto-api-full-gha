@@ -19,6 +19,7 @@ const corsOptions = {
   origin: ['https://project-mesto.kiryxa09.nomoredomainsicu.ru', 'http://localhost:3000'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
+  allowedHeaders: 'Content-Type',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
