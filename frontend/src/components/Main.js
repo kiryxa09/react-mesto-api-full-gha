@@ -44,7 +44,7 @@ function Main(props) {
             onCardLike={props.onCardLike}
             onCardDelete={props.onCardDelete}
           />
-        ))*/ console.log(props.cards.cards)}
+        ))*/ console.log(props)}
       </section>
     </main>
   );
