@@ -207,6 +207,8 @@ function App() {
     }
   }, [isOpen]);
 
+  console.log(currentUser);
+
   return (
     <AppContext.Provider
       value={{
