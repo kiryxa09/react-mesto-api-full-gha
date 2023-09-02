@@ -41,7 +41,7 @@ function App() {
     }
   });
 
- /* React.useEffect(() => {
+  React.useEffect(() => {
     handleTokenCheck();
   }, );
 
@@ -57,11 +57,11 @@ function App() {
     .catch(err => {
         console.log(err);
     })
-  };*/
+  };
 
   React.useEffect(() => {
     if(loggedIn) {
-      Promise.all([                
+      /*Promise.all([                
         api.getProfileInfo(), 
         api.getInitialCards() 
       ]) 
@@ -72,6 +72,22 @@ function App() {
       }) 
       .catch((err)=>{              
       console.log(err);
+      })*/
+      api.getProfileInfo()
+      .then((user)=>{ 
+        console.log(user); 
+        setUser(user);
+      })
+      .catch((err)=>{              
+        console.log(err);
+      })
+      api.getInitialCards()()
+      .then((cards)=>{ 
+        console.log(cards); 
+        setCards(cards);
+      })
+      .catch((err)=>{              
+        console.log(err);
       })
     } 
   }, [loggedIn]);
