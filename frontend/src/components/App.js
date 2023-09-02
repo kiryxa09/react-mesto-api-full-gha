@@ -47,9 +47,10 @@ function App() {
         api.getProfileInfo(), 
         api.getInitialCards() 
       ]) 
-      .then(([info, cards])=>{    
-        setUser(info);
-        setCards(cards);    
+      .then((data)=>{ 
+        console.log(data)   
+        //setUser(info);
+        //setCards(cards);    
       }) 
       .catch((err)=>{              
       console.log(err);
@@ -68,7 +69,7 @@ function App() {
       if (res) {
         console.log(res); 
         setLoggedIn(true);
-        setEmail(res.email);
+        setEmail(res.user.email);
         navigate("/", { replace: true });
       }
     })

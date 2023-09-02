@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.103.42
+IP 51.250.103.42
 
 Frontend https://project-mesto.kiryxa09.nomoredomainsicu.ru/
 
