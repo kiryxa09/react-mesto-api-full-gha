@@ -74,7 +74,7 @@ function App() {
       console.log(err);
       })
     } 
-  }, [loggedIn]);
+  }, []);
 
   function handleEditProfileClick() {
     openProfilePopup(true);
