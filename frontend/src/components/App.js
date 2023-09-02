@@ -48,7 +48,7 @@ function App() {
         api.getInitialCards() 
       ]) 
       .then((res)=>{ 
-        console.log(res); 
+        console.log(res, res.user.user, res.cards.cards); 
         setUser(res.user);
         setCards(res.cards);    
       }) 
