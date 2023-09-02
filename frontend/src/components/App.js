@@ -41,13 +41,9 @@ function App() {
     }
   });
 
-  
-
-  
-
   React.useEffect(() => {
     handleTokenCheck();
-  }, []);
+  }, );
 
   const handleTokenCheck = () => {
     auth.checkToken().then((res) => {
