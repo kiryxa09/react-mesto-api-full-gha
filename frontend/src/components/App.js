@@ -41,22 +41,7 @@ function App() {
     }
   });
 
-  React.useEffect(() => {
-    if(loggedIn) {
-      Promise.all([                
-        api.getProfileInfo(), 
-        api.getInitialCards() 
-      ]) 
-      .then(([user, cards])=>{ 
-        console.log(user, cards); 
-        setUser(user);
-        setCards(cards);    
-      }) 
-      .catch((err)=>{              
-      console.log(err);
-      })
-    } 
-  }, [loggedIn]);
+  
 
   
 
@@ -77,6 +62,23 @@ function App() {
         console.log(err);
     })
   };
+
+  React.useEffect(() => {
+    if(loggedIn) {
+      Promise.all([                
+        api.getProfileInfo(), 
+        api.getInitialCards() 
+      ]) 
+      .then(([user, cards])=>{ 
+        console.log(user, cards); 
+        setUser(user);
+        setCards(cards);    
+      }) 
+      .catch((err)=>{              
+      console.log(err);
+      })
+    } 
+  }, [loggedIn]);
 
   function handleEditProfileClick() {
     openProfilePopup(true);
