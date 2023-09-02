@@ -47,10 +47,10 @@ function App() {
         api.getProfileInfo(), 
         api.getInitialCards() 
       ]) 
-      .then((res)=>{ 
-        console.log(res, res.user.user, res.cards.cards); 
-        setUser(res.user);
-        setCards(res.cards);    
+      .then(([user, cards])=>{ 
+        console.log(user, cards); 
+        setUser(user);
+        setCards(cards);    
       }) 
       .catch((err)=>{              
       console.log(err);
