@@ -74,7 +74,7 @@ function App() {
       console.log(err);
       })
     } 
-  }, []);
+  },);
 
   function handleEditProfileClick() {
     openProfilePopup(true);
@@ -228,7 +228,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={ 
+              element={ currentUser &&
                 <ProtectedRouteElement
                   element={Main}
                   cards={cards}
