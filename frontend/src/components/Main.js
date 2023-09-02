@@ -36,7 +36,7 @@ function Main(props) {
         />
       </section>
       <section className="elements">
-        {props.cards.map((card) => (
+        {Array.isArray(props.cards) && props.cards.map((card) => (
           <Card
             card={card}
             key={card._id}
