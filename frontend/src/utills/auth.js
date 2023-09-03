@@ -52,4 +52,10 @@ export const signOut = () => {
       "Content-Type": "application/json",
     },
   })
+    .then(res => {
+      if (res.ok) {
+        console.log(res);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
 };

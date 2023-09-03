@@ -70,6 +70,7 @@ app.post('/signup', celebrate({
 }), createUser);
 app.get('/signout', (req, res) => {
   res.clearCookie('jwt');
+  res.send('cookie cleared');
 });
 
 app.use('/cards', auth, require('./routes/cards'));
