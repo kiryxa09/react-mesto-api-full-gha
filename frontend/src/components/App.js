@@ -156,8 +156,8 @@ function App() {
   function handleUpdateAvatar({ avatar }) {
     api
       .patchAvatar(avatar)
-      .then((avatar) => {
-        setUser(avatar.avatar);
+      .then((user) => {
+        setUser(user.user);
         closeAllPopups();
       })
       .catch((err) => {
@@ -172,7 +172,7 @@ function App() {
     api
       .addNewCard(title, image)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
