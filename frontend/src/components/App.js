@@ -61,35 +61,19 @@ function App() {
 
   React.useEffect(() => {
     if(loggedIn) {
-      /*Promise.all([                
+      Promise.all([                
         api.getProfileInfo(), 
         api.getInitialCards() 
       ]) 
       .then(([user, cards])=>{ 
         console.log(user, cards); 
-        setUser(user);
-        setCards(cards);    
+        setUser(user.user);
+        setCards(cards.cards);    
       }) 
       .catch((err)=>{              
       console.log(err);
-      })*/
-      api.getProfileInfo()
-      .then((user)=>{ 
-        console.log(user); 
-        setUser(user);
       })
-      .catch((err)=>{              
-        console.log(err);
-      })
-      api.getInitialCards()
-      .then((cards)=>{ 
-        console.log(cards); 
-        setCards(cards);
-      })
-      .catch((err)=>{              
-        console.log(err);
-      })
-    } 
+    }
   }, [loggedIn]);
 
   function handleEditProfileClick() {
