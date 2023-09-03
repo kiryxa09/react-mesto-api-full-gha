@@ -66,9 +66,9 @@ function App() {
         api.getInitialCards() 
       ]) 
       .then(([user, cards])=>{ 
-        console.log(user, cards); 
+        const orderedCards = cards.cards.reverse();
         setUser(user.user);
-        setCards(cards.cards);    
+        setCards(orderedCards);    
       }) 
       .catch((err)=>{              
       console.log(err);
