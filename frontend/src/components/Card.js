@@ -45,7 +45,7 @@ function Card(props) {
             className={cardLikeButtonClassName}
             onClick={handleLikeClick}
           ></button>
-          <p className="element__like-counter">{props.card.likes.length}</p>
+          <p className="element__like-counter">{Array.isArray(props.card.likes) && props.card.likes.length}</p>
         </div>
       </div>
     </article>
