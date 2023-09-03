@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import menuButtonPath from "../images/menuButton.svg";
 import closeMenuButtonPath from "../images/closeMenuButton.svg";
+import auth from "../../../backend/middlewares/auth";
 
 function Header() {
   const appContext = React.useContext(AppContext);
@@ -19,7 +20,7 @@ function Header() {
 
   const exitMain = () => {
     appContext.setLoggedIn(false);
-    localStorage.removeItem("jwt");
+    auth.signOut();
   };
 
   const handleMenuClick = () => {
