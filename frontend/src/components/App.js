@@ -47,8 +47,7 @@ function App() {
 
   const handleTokenCheck = () => {
     auth.checkToken().then((res) => {
-      if (res) {
-        console.log(res); 
+      if (res) { 
         setLoggedIn(true);
         setEmail(res.user.email);
         navigate("/", { replace: true });
@@ -204,8 +203,6 @@ function App() {
       };
     }
   }, [isOpen]);
-
-  console.log(currentUser);
 
   return (
     <AppContext.Provider
