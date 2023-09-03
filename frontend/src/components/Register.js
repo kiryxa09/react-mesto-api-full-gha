@@ -17,7 +17,7 @@ const Register = (props) => {
         email: values.email,
       })
       .then((res) => {
-        if (res.data) {
+        if (res) {
           appContext.setTooltipInfo(true);
           navigate("/sign-in", { replace: true });
           appContext.setRegistered(false);
