@@ -43,3 +43,13 @@ export const checkToken = () => {
   })
     .then((res) => checkResponse(res))
 };
+
+export const signOut = () => {
+  return fetch(`${BASE_URL}/signout`, {
+    method: "GET",
+    credentials: 'include',
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+};

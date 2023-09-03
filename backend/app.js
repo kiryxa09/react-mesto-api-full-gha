@@ -68,6 +68,9 @@ app.post('/signup', celebrate({
     avatar: Joi.string().regex(regex),
   }),
 }), createUser);
+app.get('/signout', (req, res) => {
+  res.clearCookie('jwt');
+});
 
 app.use('/cards', auth, require('./routes/cards'));
 app.use('/users', auth, require('./routes/users'));
