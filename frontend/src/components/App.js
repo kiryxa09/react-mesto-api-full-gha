@@ -141,8 +141,8 @@ function App() {
   function handleUpdateUser(name, about) {
     api
       .patchProfileInfo(name, about)
-      .then((info) => {
-        setUser(info);
+      .then((user) => {
+        setUser(user.user);
         closeAllPopups();
       })
       .catch((err) => {
@@ -156,8 +156,8 @@ function App() {
   function handleUpdateAvatar({ avatar }) {
     api
       .patchAvatar(avatar)
-      .then((info) => {
-        setUser(info);
+      .then((avatar) => {
+        setUser(avatar.avatar);
         closeAllPopups();
       })
       .catch((err) => {
